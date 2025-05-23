@@ -1,7 +1,5 @@
-const mongoose = require('../../../services/mariadb');
-
-const User = mongoose.model(
-  'User',
+const User =
+  ('User',
   {
     username: {
       type: String,
@@ -20,8 +18,7 @@ const User = mongoose.model(
       required: true,
     },
   },
-  'users'
-);
+  'users');
 
 module.exports = {
   User,
