@@ -7,10 +7,33 @@
   pointer-events: none;
 }
 
+.custom-card {
+  border: 1px solid black !important;
+  
+}
+.custom-card:hover  {
+  background-color: #fcfdaf !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.gradient {
+    background: linear-gradient(to bottom, #FCFDAF, #ffffff);
+}
+
+.custom-sider {
+  border-right: 1px solid black !important;
+}
+
+
+.ant-layout-sider-trigger {
+  border-right: 1px solid black !important;
+  color: black !important;
+  background: none !important;
 }
 
 .App-header {
@@ -22,6 +45,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+body {
+  background-color: '#eaf8ff'
 }
 
 .App-link {

@@ -7,7 +7,7 @@ const db = require('../db');
 router.get('/', async (req, res) => {
   const { part } = req.query;
   try {
-    let query = 'SELECT * FROM exercises';
+    let query = 'SELECT * FROM schools';
     const values = [];
 
     if (part) {
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const [rows] = await db.query('SELECT * FROM exercises where id = ?', [id]);
+    const [rows] = await db.query('SELECT * FROM schools where id = ?', [id]);
     if (rows.length === 0) {
       return res.status(404).json({ message: 'Item not found' });
     }
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
     const [
       result,
     ] = await db.query(
-      'INSERT INTO exercises (name, description) VALUES (?, ?)',
+      'INSERT INTO schools (name, description) VALUES (?, ?)',
       [name, description]
     );
     res.status(201).json({ id: result.insertId, name, description });
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
     const [
       result,
     ] = await db.query(
-      'UPDATE exercises SET name = ?, description = ? WHERE id = ?',
+      'UPDATE schools SET name = ?, description = ? WHERE id = ?',
       [name, description, id]
     );
     if (result.affectedRows === 0) {
@@ -81,7 +81,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const [result] = await db.query('DELETE FROM exercises WHERE id = ?', [id]);
+    const [result] = await db.query('DELETE FROM schools WHERE id = ?', [id]);
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Item not found' });
     }

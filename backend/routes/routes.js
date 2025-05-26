@@ -8,6 +8,7 @@ const answersRouter = require('./answers');
 const choicesRouter = require('./choices');
 const mailsRouter = require('./mails');
 const recordsRouter = require('./records');
+const schoolsRouter = require('./schools');
 
 router.use('/users', usersRouter);
 router.use('/exercises', exercisesRouter);
@@ -16,5 +17,7 @@ router.use('/answers', answersRouter);
 router.use('/choices', choicesRouter);
 router.use('/mails', mailsRouter);
 router.use('/records', recordsRouter);
+router.use('/schools', schoolsRouter);
+
 
 module.exports = router;
